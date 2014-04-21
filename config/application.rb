@@ -68,18 +68,19 @@ module Supermarket
     # true.
     config.i18n.enforce_available_locales = false
 
-    # Allow magiconf to work with application configuration
-    Magiconf.setup!
-
     # Set default URL for ActionMailer
     config.action_mailer.default_url_options = {
-      host: Supermarket::Config.host,
-      port: Supermarket::Config.port
+      host: ENV['HOST'],
+      port: ENV['PORT']
     }
 
-    config.action_mailer.asset_host = Supermarket::Config.port ? "#{Supermarket::Config.host}:#{Supermarket::Config.port}" : Supermarket::Config.host
+    if ENV['PORT'].present?
+      config.action_mailer.asset_host = "#{ENV['HOST']}:#{ENV['PORT']}"
+    else
+      config.action_mailer.asset_host = ENV['HOST']
+    end
 
     # Set default from email for ActionMailer
-    ActionMailer::Base.default from: Supermarket::Config.from_email
+    ActionMailer::Base.default from: ENV['FROM_EMAIL']
   end
 end
