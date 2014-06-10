@@ -33,7 +33,6 @@ gem 'semverse'
 gem 'sitemap_generator'
 
 gem 'sentry-raven', '~> 0.8.0', require: false
-gem 'statsd-ruby', require: 'statsd'
 gem 'analytics-ruby', require: false
 
 gem 'sass-rails',   '~> 4.0.1'
