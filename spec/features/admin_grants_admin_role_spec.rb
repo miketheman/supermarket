@@ -2,10 +2,9 @@ require 'spec_feature_helper'
 
 feature 'admin grants another user admin role' do
   let(:user) { create(:user) }
-  let(:admin) { create(:admin) }
 
   before do
-    sign_in(admin)
+    sign_in(create(:admin))
     visit user_path(user)
     follow_relation 'make_admin'
   end
