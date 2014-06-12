@@ -8,6 +8,7 @@ describe UserAuthorizer do
     subject { described_class.new(user, record) }
 
     it { should permit_authorization(:make_admin) }
+    it { should permit_authorization(:revoke_admin) }
   end
 
   context 'as an admin user acting on another admin user' do
@@ -16,6 +17,7 @@ describe UserAuthorizer do
     subject { described_class.new(user, record) }
 
     it { should_not permit_authorization(:make_admin) }
+    it { should permit_authorization(:revoke_admin) }
   end
 
   context 'as a non admin user' do
@@ -23,5 +25,6 @@ describe UserAuthorizer do
     subject { described_class.new(user, record) }
 
     it { should_not permit_authorization(:make_admin) }
+    it { should_not permit_authorization(:revoke_admin) }
   end
 end
