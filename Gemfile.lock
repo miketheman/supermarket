@@ -243,8 +243,6 @@ GEM
       mixlib-shellout
       systemu (~> 2.5.2)
       yajl-ruby
-    oj (2.9.5)
-    oj_mimic_json (1.0.1)
     omniauth (1.2.1)
       hashie (>= 1.2, < 3)
       rack (~> 1.0)
@@ -453,8 +451,6 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri
   octokit!
-  oj
-  oj_mimic_json
   omniauth
   omniauth-chef-oauth2!
   omniauth-github
